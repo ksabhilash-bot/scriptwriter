@@ -1,0 +1,20 @@
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+langgraph
+langchain-mistralai
+langchain-xai
+langchain-google-genai
+python-dotenv>=1.0.1
+requests
+aiohttp
+httpx
+urllib3
+
+# Async Support (Latest)
+asyncio
+
+# Data Validation & Processing (Latest)
+pydantic
+pydantic-settings
