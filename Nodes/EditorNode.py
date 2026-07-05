@@ -23,3 +23,7 @@ def editor_node(state: PipelineState)->dict:
         "while keeping the core message intact. Return only the edited text.\n"
         f"Text:\n {state["raw_input"]}"
     )
+
+    response = llm.invoke(prompt)
+
+    return {"edited_text":response.content.strip()}
