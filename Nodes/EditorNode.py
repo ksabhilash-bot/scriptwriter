@@ -1,14 +1,14 @@
-from langchain_xai import ChatXAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from state.state import PipelineState
 from dotenv import load_dotenv
 import os
 load_dotenv()
 
-api_key= os.getenv("XAI_API_KEY")
+api_key= os.getenv("GOOGLE_API_KEY")
 
-llm = ChatXAI(
-    xai_api_key=api_key,
-    model = "grok-4",
+llm = ChatGoogleGenerativeAI(
+    google_api_key=api_key,
+    model = "gemini-2.5-flash",
     temperature=0.7,
 )
 
@@ -21,7 +21,7 @@ def editor_node(state: PipelineState)->dict:
         "You are an expert copyeditor."
         "Your task is to clean up the grammar, remove typos, and improve the overall readability and refine the tone of the text.\n"
         "while keeping the core message intact. Return only the edited text.\n"
-        f"Text:\n {state["raw_input"]}"
+        f"Text:\n {state['raw_input']}"
     )
 
     response = llm.invoke(prompt)
